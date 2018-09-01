@@ -22,16 +22,16 @@ class Pokemon extends Component {
             imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.attributes.id}.png`
         }
         if (this.state.attributes.abilities !== undefined) {
-            abilities = this.state.attributes.abilities.map((element, index) => 
-              <li key={index}>{element.ability.name}</li>
+            abilities = this.state.attributes.abilities.map((element, index) =>
+                <li key={index}>{element.ability.name}</li>
             )
-          }
-      
-          if (this.state.attributes.moves !== undefined) {
+        }
+
+        if (this.state.attributes.moves !== undefined) {
             moves = this.state.attributes.moves.slice(0, 4).map((element, index) =>
-              <li key={index}>{element.move.name}</li>
+                <li key={index}>{element.move.name}</li>
             )
-          }
+        }
 
         return (
             <div className="card pokemon">
@@ -74,11 +74,13 @@ class Pokemon extends Component {
                 </div>
 
                 <footer className="card-footer">
-                    <button className="button is-primary" >
+                    <button className="button is-primary" onClick={() => this.props.onCatch(this.state.attributes)}>
                         Capture
-          </button>
+  </button>
                 </footer>
-            </div>)
+            </div>
+
+        )
     }
 }
 
